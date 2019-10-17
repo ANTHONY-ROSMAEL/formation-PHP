@@ -446,7 +446,52 @@ echo '</td></table>';
 //-------------------------------------------------------------------
 
 echo '<hr><h2>Les Tableaux</h2>';
+// Déclaration et remplisage d'un tableau indexé.
 
+$apprenante = array ('lena','nia');
+$apprenante = ['angélique', 'astrid','melissa'];
+
+//pour affichez les valeurs du tableau ...
+#echo $apprenante ; //ne marche pas, il faut inserer une valeur.
+echo $apprenante[1] .'<br>'; //astrid
+echo $apprenante[2] .'<br>';//melissa
+
+/**pour affichez la valeur d'une clé d'un tableau, on utilise : montableau [clé]. cle = indice = index */
+
+echo '<pre>';
+#var_drump ($apprenante);
+print_r($apprenante);
+echo '</pre>';
+
+/** Ls tableaux associatifs :
+ * les clés ne sont plus numérique, mais sous forme de string.
+ */
+
+$contact = [
+    // cle       =>      valeur
+    'prenom'     =>      'Hugo',
+    'nom'        =>      'LIEGEARD',
+    'telephone'  =>      '0783971515',
+    'age'        =>      '29ans',
+    'adresse'    =>      [
+                               'rue'   => 'Rue des Trois Poiriers',
+                               'ville' => 'Pointe-a-Pitre',
+                               'cp'    => '78190',
+                               'pays'  => [
+                                   'nom'   => 'France',
+                                   'code' => 'FR'
+                               ],
+                         ]
+];
+echo '<h1>Bonjour ' . $contact['prenom'] 
+                    . ' ' 
+                    . $contact['nom'] 
+                    . '<br><small>'
+                    . $contact['adresse']['ville']
+                    . ' '
+                    . $contact['adresse']['pays']['nom']
+                    . '</small>'
+                    . '</h1>';
 ?>
 
 
