@@ -463,7 +463,7 @@ echo '<pre>';
 print_r($apprenante);
 echo '</pre>';
 
-/** Ls tableaux associatifs :
+/** Ls tableaux associatifs : // ne pas confondre avec un objet, ce qu'il n'y a pas en php.
  * les clés ne sont plus numérique, mais sous forme de string.
  */
 
@@ -492,8 +492,145 @@ echo '<h1>Bonjour ' . $contact['prenom']
                     . $contact['adresse']['pays']['nom']
                     . '</small>'
                     . '</h1>';
+
+$mesContacts=[]; //Déclaration d'un tableau vide.
+$mesContacts[]='rio'; //ajouter un element dans le tableau.
+$mesContacts[]='janeiro'; //indice affecter atomatiquement par php
+$mesContacts[10]=255; //indice preciser manuellement
+$mesContacts[]='aurelie'; //PHP continue apres avec 11.
+
+echo'<pre>';
+print_r($mesContacts);
+echo'<pre>';
+
+
+$contacts=[];
+
+$contacts[]=[
+    'prenom' => 'hugo',
+    'nom' => 'liegeard',
+];
+
+$contacts[]=[
+    'prenom' => 'marie',
+    'nom' => 'monrose',
+];
+
+$contacts[]=[
+    'prenom' => 'benjamin',
+    'nom' => 'fressel'
+];
+
+echo'<pre>';
+print_r($contacts);
+echo'<pre>';
+
+//afficher le nom de chaque contact ;
+
+echo $contacts[0]['prenom'].'<br>';
+echo $contacts[1]['prenom'].'<br>';
+echo $contacts[2]['prenom'];
+
+
+separator();
+/**
+ * Faire une boucle afin d'afficher les prenoms des contacts dans un paragraphe.
+ */
+
+/**NOTA BENE :
+ * count et sizeof me retourne la dimension de mon tableau.
+ * autrement dit, le nombre d'éléments.
+ * pas de différence entre les deux fonctions.
+ */
+
+echo 'la taille de mon tableau est :' .count($contacts) .'<br>';
+echo 'la taille de mon tableau est :' .sizeof($contacts) .'<br>';
+
+for($i= 0; $i < count($contacts); $i++) {
+     echo '<p>' . $contacts[$i] ['prenom'] .'</p>';
+}
+
+separator();
+
+echo '<hr><h2>La boucle FOREACH</h2>';
+
+foreach ($contacts as $index => $valeur){
+
+    echo 'mon contact' .'<br>'. $valeur ['prenom'] .'<br>'.'est à lindex '. $index. '<br>';
+}
+separator();
+    foreach ($contacts as $valeur){
+        echo 'mon contact' .'<br>'. $valeur ['prenom'] .'<br>';
+    }
+
+    separator();
+
+/*
+    EXERCICE :
+    En utilisant une ou plusieurs boucles foreach
+    afficher les informations (Cle / Valeur) du contact
+    $contact.
+*/
+
+separator();
+
+$contact = [
+    // cle      => valeur
+    'prenom'    => 'Rodrigue',
+    'nom'       => 'NOUEL',
+    'telephone' => [
+        'fixe' => '0596 77 68 56',
+        'port' => '0696 67 45 34',
+        'fax'  => '0596 67 56 45'
+    ],
+    'age'       => '43 ans',
+    'adresse'   => [
+        'rue'   => 'Rue de la Maurine',
+        'ville' => 'Fort-de-France',
+        'cp'    => '97200'
+    ]
+];
+
+
+
+$content = '<ul>';
+
+// Je parcours mon tableau $contact
+// Ici $cle prend successivement les valeurs prenom, nom, ...
+foreach ($contact as $cle => $valeur) {
+
+    // Si au cours d'une des itérations (tour de boucle) 
+    // ma $valeur est un tableau...
+    if ( is_array( $valeur ) ) {
+        
+        // --- Alors, je parcours le nouveau tableau
+        $content .= "<li><strong>$cle</strong> : </li>";
+        $content .= "<ul>";
+
+        foreach ($valeur as $key => $value) {
+            $content .= "<li><strong>$key</strong> : $value</li>";
+        }
+
+        $content .= "</ul>";
+
+    } else {
+        // -- Sinon, ma $valeur n'est pas un tableau. Je l'affiche...
+        $content .= "<li><strong>$cle</strong> : $valeur</li>";
+    }
+}
+
+$content .= '</ul>';
+echo $content;
+separator();
+
+//-------------------------------
+$txt = 'lorem';
+$txt .='ipsum';
+$txt .='dolor';
+
+$txt ='lorem'.'ipsum'.'dolor';
+
+echo $txt;
+separator();
+phpinfo(); //affiche les infos de php.
 ?>
-
-
-
-
