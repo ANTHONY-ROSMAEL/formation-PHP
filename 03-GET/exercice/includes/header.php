@@ -10,8 +10,8 @@
 <header>
         <ul>
        <li><a href="./index.php">Accueil</a></li>
-       <li><a href="./presentation.php">Presentation</a></li>
-       <li><a href ="#">Acceuil</a></li>
-       <li><a href="./contact.php">Contact</a></li>
+       <li><a href="./index.php?page=presentation">Presentation</a></li>
+       <li><a href ="index.php?page=services">Services</a></li>
+       <li><a href="./index.php?page=contact">Contact</a></li>
         </ul>
     </header>
