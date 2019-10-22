@@ -31,7 +31,8 @@
         // Aperçu de $errors
         // print_r( $errors );
         if ( empty($errors) ) {
-            // Si mon tableau d'erreurs après toutes les vérifications est vide... Alors il n'y a pas eu d'erreurs et je peux procéder a la suite de mon traitement... Sauvegarde en BDD, Envoi de mail...
+            // Si mon tableau d'erreurs après toutes les vérifications est vide... Alors il n'y a pas eu d'erreurs et je peux procéder a la suite de mon traitement...
+            // Sauvegarde en BDD, Envoi de mail...
         }
     }
 ?>
@@ -42,7 +43,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Formulaire 3</title>
 </head>
 <body>
@@ -82,7 +84,7 @@
                 <label for="message">Message</label>
                 <textarea 
                 placeholder="Saisissez un message"
-                class="form-control <?= isset($errors['message']) ? 'is-invalid' : 'is-valid' ?>" id="message" name="message" rows="3"><?= $message ?></textarea>
+                class="form-control <?= isset($errors['message']) ? 'is-invalid' : '' ?>" id="message" name="message" rows="3"><?= $message ?></textarea>
                 <div class="invalid-feedback">
                     <?= isset($errors['message']) ? $errors['message'] : '' ?>
                 </div>
