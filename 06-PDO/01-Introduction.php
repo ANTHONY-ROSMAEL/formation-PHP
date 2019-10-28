@@ -176,6 +176,7 @@ while( $article = $query->fetch() ) {
         - Votre requète ne sort qu'un résultat, mais peut potentiellement en sortir plusieurs : UNE BOUCLE !
     ------------------------------------------------------------------------
 */
+
 /*
     On peux s'appuyer sur les données transmisent dans l'URL ($_GET)
     pour récupérer des informations dans la base de données.
