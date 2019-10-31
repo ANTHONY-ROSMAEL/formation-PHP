@@ -1,14 +1,26 @@
 <?php
-   
+
+    //inclusion du fichier global.
+   require_once(__DIR__.'/../functions/global.php');
+
+   //inclusion de la base de données
     require_once(__DIR__.'/../config/database.php');
+
+    //inclusion de nos fonctions.
+    require_once(__DIR__.'/../functions/categorie.php');
+    require_once(__DIR__.'/../functions/article.php');
+    require_once(__DIR__.'/../functions/auteur.php');
+
     
     // Récupération des catégories de la base
     // $categories = ['Politique', 'Economie', 'Culture', 'Sports'];
     
-    // Récupération des catégories de la base
-    // $categories = ['Politique', 'Economie', 'Culture', 'Sports'];
-    $query = $db->query('SELECT*FROM categorie');
-    $categories = $query->fetchAll();
+ $categories = getcategories();
+
+ //si un auteur est en session alors $auteur prendra comme valeur le tableau d'auteur.
+ // sinon, $auteur prendra comme valeur false.
+ $auteurIsLogged = isOnline();
+
 
 ?>
 <!DOCTYPE html>
@@ -41,9 +53,11 @@
             <li class="nav-item active">
                 <a class="nav-link" href=".">ActuNews<span class="sr-only">(current)</span></a>
             </li>
-            <?php foreach ($categories as $categorie) { ?>
+            <?php foreach($categories as $categorie) { ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="categorie.php?nom_categorie=<?= $categorie['nom'] ?>">
+                    <a class="nav-link" href="categorie.php?
+                    nom_categorie=<?= $categorie['nom'] ;?>&
+                    id_categorie=<?= $categorie['id'] ?>">
                         <?= $categorie['nom'] ?></a>
                 </li>
             <?php } ?>
@@ -52,16 +66,17 @@
         <ul class="navbar-nav mx-auto"></ul>
 
         <ul class="navbar-nav justify-content-end">
-         
-                
-       
-      
-                <a class="nav-item btn btn-outline-dark mx-1 navbar-right" href="connexion.php">Connexion</a>
-                <a class="nav-item btn btn-outline-dark mx-1 navbar-right" href="inscription.php">Inscription</a>
-           
+         <?php if($auteurIsLogged) { ?>
+         <span class="navbar-text mx-2"> Bonjour <strong> <?= $auteurIsLogged['prenom']; ?>
+         </strong>
+         </span>
+            <a class="nav-item btn btn-outline-dark mx-1 navbar-right" href="connexion.php">Déconnexion</a>
         </ul>
-
-
+         <?php } else { ?>
+            <a class="nav-item btn btn-outline-dark mx-1 navbar-right" href="connexion.php">Connexion</a>
+                <a class="nav-item btn btn-outline-dark mx-1 navbar-right" href="inscription.php">Inscription</a>
     </div>
 </nav>
 <!-- Fin du Menu du site -->
+
+

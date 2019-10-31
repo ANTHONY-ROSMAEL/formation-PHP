@@ -28,10 +28,18 @@ if(!empty($_POST)) {
         $errors['password'] = 'Les mots de passe ne correspondent pas';
     }
     if(empty($errors)) {
-        
-       
+
+
+        //inscription en BDD
+    if (inscription($prenom, $nom, $email, $password) ) {
+
+        //redirection sur la page de connexion
+        redirection('connexion.php?inscription=success&email=' .$email);
+            }
         }
+    
     }
+
 
 ?>
 

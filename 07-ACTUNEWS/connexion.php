@@ -21,13 +21,13 @@ if(!empty($_POST)) {
         } else {
             // Problème avec l'authentification.
             // La fonction connexion a retourné false.
-            $errors['email'] = "Email / Mot de passe incorrect.";
+            $errors['email'] = "Email / Mot de passe incorrect."; 
         }
     }
 }
 ?>
 
-<div class="p-3 mx-auto text-center">
+<div class="p-3 mx-auto text-center"> 
     <h1 class="display-4">Connexion</h1>
 </div>
 
