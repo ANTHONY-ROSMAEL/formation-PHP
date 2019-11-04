@@ -1,7 +1,7 @@
 <?php
 try {
     $db = new PDO(
-        'mysql:host=localhost;dbname=actunews', 
+        'mysql:host=localhost;dbname=actunew', 
         'root', 
         '', 
         [
@@ -14,3 +14,4 @@ try {
     exit; // Arrêt du script en cas d'erreur de connexion à la BDD.
 }
 
+ 

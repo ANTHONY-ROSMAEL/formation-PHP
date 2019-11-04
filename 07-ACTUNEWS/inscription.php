@@ -30,12 +30,12 @@ if(!empty($_POST)) {
     if(empty($errors)) {
 
 
-        //inscription en BDD
-    if (inscription($prenom, $nom, $email, $password) ) {
+      // Inscription en BDD
+      if ( inscription ( $prenom, $nom, $email, $password ) ) {
+        // Redirection sur la page de connexion
+        redirection('connexion.php?inscription=success&email=' . $email);
+    }
 
-        //redirection sur la page de connexion
-        redirection('connexion.php?inscription=success&email=' .$email);
-            }
         }
     
     }

@@ -1,7 +1,4 @@
-<!-- Emmet : .container>footer.mt-4.pt-4.border-top>.row>.col-12.col-md+(.col-6.col-md)*2 -->
-<?php
-//$categories = ['Politique', 'Economie', 'Culture', 'Sports'];
-?>
+
 <div class="container">
     <footer class="mt-4 pt-4 border-top">
         <div class="row">
@@ -15,16 +12,14 @@
                 <h5>Catégories</h5>
                 <ul class="list-unstyled">
                 
-                <?php foreach($categories as $categorie) { ?>
+                <?php foreach ($categories as $categorie) { ?>
                         <li>
-                            <a class="text-muted" href="categorie.php?
-                            nom_categorie=<?= $categorie['nom'] ?>&
-                    id_categorie=<?= $categorie['id'] ?>"> 
-                        
-                                <?= $categorie['nom'] ?>
+                            <a class="text-muted" href="categorie.php?nom_categorie=<?= $categorie['nom']; ?>&id_categorie=<?= $categorie['id'] ?> ">
+                            <?= $categorie['nom'] ?>
                             </a>
+                            <?php } ?>
                         </li>
-                    <?php } ?>
+                   
                 </ul>
             </div>
             <div class="col-6 col-md">

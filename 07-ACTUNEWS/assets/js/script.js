@@ -1,3 +1,3 @@
-$(function(){
-    //mon code JS ...
+$(function() {
+    // mon code JS..
 });
